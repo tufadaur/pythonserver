@@ -69,7 +69,7 @@ def apiweb():
   if(hesterna is not None):
     database["hesterna"] = hesterna    
   if(caldaia is not None):
-    database["caldaia"] = caldaia
+    database["rele"] = rele
     
   # DETERMINO LA TEMPERATURA SOGLIA PER LA FASCIA 
   
