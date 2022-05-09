@@ -15,8 +15,12 @@ def search():
   with open('db.json') as f:
    employee_data= json.load(f)
   
+  employee_data["fascia"] = "55" 
   
-  return (employee_data["fascia"])
+  with open('db.json', 'w') as json_file:
+   json.dump(employee_data, json_file)
+  
+  return (employee_data)
 
 
 if __name__ == '__main__':
