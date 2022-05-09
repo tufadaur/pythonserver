@@ -22,7 +22,7 @@ def apiweb():
   hinterna = request.args.get('hinterna')
   testerna = request.args.get('testerna')
   hesterna = request.args.get('hesterna')
-  caldaia = request.args.get('caldaia')
+  rele = request.args.get('rele')
 
   #APRO IL FILE JSON DATABASE  
   with open('db.json') as f:
@@ -97,6 +97,7 @@ def apiweb():
   	caldaia = 0
   
   database["caldaia"] = caldaia 
+  database["rele"] = rele
   	
   # SCRIVO IL FILE JSON
   
