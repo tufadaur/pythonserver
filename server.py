@@ -88,7 +88,7 @@ def apiweb():
   
   # DETERMINO SE ACCENDERE LA CALDAIA
   
-  tempsogllia = database["tempsoglia"]
+  tempsoglia = database["tempsoglia"]
   tempinterna = database["tinterna"]
   
   if (tempinterna <= tempsoglia ):
