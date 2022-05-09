@@ -72,6 +72,9 @@ def search():
   
   employee_data["fascia"] = fascia
   
+  if (fascia == 1):
+   employee_data["tempsoglia"] = employee_data["fascia1"]
+  
   
   
   with open('db.json', 'w') as json_file:
