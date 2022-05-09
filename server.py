@@ -13,9 +13,9 @@ def index():
 def search():
 
   with open('db.json') as f:
-  employee_data= json.load(f)
+   employee_data= json.load(f)
   
-   employee_dict = json.loads(employee_data)
+  employee_dict = json.loads(employee_data)
 
   return (employee_dict)
 
