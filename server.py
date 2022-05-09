@@ -16,7 +16,7 @@ def search():
     if None in (temp1, temp2):
     	return ("non ci sono")
     	
-  return args
+  return (args)
     
 
 if __name__ == '__main__':
