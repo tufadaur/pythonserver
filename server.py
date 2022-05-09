@@ -11,18 +11,14 @@ def index():
   
 @app.route('/termostato' , methods=['GET'])
 def search():
- 
-  
- fascia1 = "00:00:00"
- fascia2 = "06:00:00"
- fascia3 = "08:00:00"
- fascia4 = "13:00:00"
- fascia5 = "16:00:00"
- fascia6 =  "23:00:00"
-
-  
   now = datetime.now()
-  
+  orario = now.strftime("%H:%M:%S")
+  fascia1 = "00:00:00"
+  fascia2 = "06:00:00"
+  fascia3 = "08:00:00"
+  fascia4 = "13:00:00"
+  fascia5 = "16:00:00"
+  fascia6 =  "23:00:00"
   orario = now.strftime("%H:%M:%S")
   print("date and time =", orario)
   
