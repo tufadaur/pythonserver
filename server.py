@@ -91,6 +91,8 @@ def apiweb():
   tempsoglia = database["tempsoglia"]
   tempinterna = database["tinterna"]
   
+  caldaia = 0
+  
   if (tempinterna <= tempsoglia ):
   	caldaia = 1
   else:
