@@ -13,13 +13,10 @@ def search():
     temp1 = args.get('temp1')
     temp2 = args.get('temp2')
     
-    if None not in (temp1, temp2):
+    if None in (temp1, temp2):
     	return ("non ci sono")
     	
-    elif temp1 is not None:
-        return ("temp1 non presente")
-    elif temp2 is not None:
-        return ("temp2 non presente")
+  return args
     
 
 if __name__ == '__main__':
