@@ -24,16 +24,22 @@ def search():
   
   if (orario >= fascia1 and orario < fascia2 ):
    print ("fascia1")
+   fascia = 1
   if (orario >= fascia2 and orario < fascia3 ):
    print ("fascia2")
+   fascia = 2
   if (orario >= fascia3 and orario < fascia4 ):
    print ("fascia3")
+   fascia = 3
   if (orario >= fascia4 and orario < fascia5 ):
    print ("fascia4")
+   fascia = 4
   if (orario >= fascia5 and orario < fascia6 ):  
    print ("fascia5")
+   fascia = 5
   if (orario >= fascia6 and orario < fascia1 ):
    print ("fascia6")
+   fascia = 6
 
 
   with open('db.json') as f:
@@ -64,6 +70,7 @@ def search():
   if(stato3 is not None):
     employee_data["stato3"] = stato3
   
+  employee_data["fascia"] = fascia
   
   
   
