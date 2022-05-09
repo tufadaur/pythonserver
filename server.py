@@ -16,7 +16,7 @@ def search():
    employee_data= json.load(f)
   
   
-  return (employee_data)
+  return (employee_data["fascia"])
 
 
 if __name__ == '__main__':
