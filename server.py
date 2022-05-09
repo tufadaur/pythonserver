@@ -103,7 +103,7 @@ def apiweb():
   with open('db.json', 'w') as json_file:
    json.dump(database, json_file)
   
-  return (employee_data)
+  return (database)
 
 
 if __name__ == '__main__':
