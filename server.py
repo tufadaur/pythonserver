@@ -17,7 +17,7 @@ def search():
    
    temp1 = request.args.get('temp1')
   
-  if none not in  temp1:
+  if(temp1 is not None):
     employee_data["temp1"] = temp1
   
   
