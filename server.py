@@ -12,7 +12,7 @@ def index():
 @app.route('/termostato' , methods=['GET'])
 def search():
 
-  time.strftime('%H:%M', time.localtime())
+  print (time.strftime('%H:%M', time.localtime()))
 
   with open('db.json') as f:
    employee_data= json.load(f)
