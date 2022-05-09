@@ -10,7 +10,16 @@ def index():
 @app.route('/termostato' , methods=['GET'])
 def search():
     args = request.args
-    return args
+    temp1 = args.get('temp1')
+    temp2 = args.get('temp2')
+    
+    if None not in (temp1, temp2):
+    	return ("non ci sono")
+    	
+    elif temp1 is not None:
+        return ("temp1 non presente")
+    elif temp2 is not None:
+        return ("temp2 non presente")
     
 
 if __name__ == '__main__':
