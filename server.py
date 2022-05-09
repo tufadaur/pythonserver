@@ -73,17 +73,17 @@ def search():
   employee_data["fascia"] = fascia
   
   if (fascia == 1):
-   employee_data["tempsoglia"] = employee_data["fascia1"]
+   employee_data["tempsoglia"] = employee_data["tempf1"]
   if (fascia == 2):
-   employee_data["tempsoglia"] = employee_data["fascia2"]
+   employee_data["tempsoglia"] = employee_data["tempf2"]
   if (fascia == 3):
-   employee_data["tempsoglia"] = employee_data["fascia3"]
+   employee_data["tempsoglia"] = employee_data["tempf3"]
   if (fascia == 4):
-   employee_data["tempsoglia"] = employee_data["fascia4"]
+   employee_data["tempsoglia"] = employee_data["tempf4"]
   if (fascia == 5):
-   employee_data["tempsoglia"] = employee_data["fascia5"]
+   employee_data["tempsoglia"] = employee_data["tempf5"]
   if (fascia == 6):
-   employee_data["tempsoglia"] = employee_data["fascia6"]
+   employee_data["tempsoglia"] = employee_data["tempf6"]
   
   
   with open('db.json', 'w') as json_file:
