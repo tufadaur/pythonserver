@@ -14,8 +14,14 @@ def search():
 
   with open('db.json') as f:
    employee_data= json.load(f)
+   
+   temp1 = request.args.get('temp1')
   
-  employee_data["fascia"] = "55" 
+  if none not in  temp1:
+    employee_data["temp1"] = temp1
+  
+  
+  
   
   with open('db.json', 'w') as json_file:
    json.dump(employee_data, json_file)
