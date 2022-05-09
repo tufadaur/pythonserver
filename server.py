@@ -1,5 +1,7 @@
 from flask import Flask , request
 
+import json
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -9,15 +11,14 @@ def index():
   
 @app.route('/termostato' , methods=['GET'])
 def search():
-    args = request.args
-    temp1 = args.get('temp1')
-    temp2 = args.get('temp2')
-    
-    if None in (temp1, temp2):
-    	return ("non ci sono")
-    else:    
-        return (args)
-    
+
+  with open('db.json') as f:
+  employee_data= json.load(f)
+  
+  employee_dict = json.loads(employee_data)
+
+  return (employee_dict)
+
 
 if __name__ == '__main__':
     app.debug = True
