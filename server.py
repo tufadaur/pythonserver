@@ -101,7 +101,7 @@ def apiweb():
   # SCRIVO IL FILE JSON
   
   with open('db.json', 'w') as json_file:
-   json.dump(employee_data, json_file)
+   json.dump(database, json_file)
   
   return (employee_data)
 
