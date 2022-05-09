@@ -23,17 +23,17 @@ def search():
   print("date and time =", orario)
   
   if (orario >= fascia1 and orario < fascia2 ):
-	print ("fascia1")
+   print ("fascia1")
   if (orario >= fascia2 and orario < fascia3 ):
-	print ("fascia2")
+   print ("fascia2")
   if (orario >= fascia3 and orario < fascia4 ):
-	print ("fascia3")
+   print ("fascia3")
   if (orario >= fascia4 and orario < fascia5 ):
-	print ("fascia4")
-  if (orario >= fascia5 and orario < fascia6 ):
-	print ("fascia5")
+   print ("fascia4")
+  if (orario >= fascia5 and orario < fascia6 ):  
+   print ("fascia5")
   if (orario >= fascia6 and orario < fascia1 ):
-	print ("fascia6")
+   print ("fascia6")
 
 
   with open('db.json') as f:
