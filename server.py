@@ -15,7 +15,7 @@ def search():
     
     if None in (temp1, temp2):
     	return ("non ci sono")
-    else 	
+    else:    
         return (args)
     
 
