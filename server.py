@@ -10,81 +10,95 @@ def index():
   
   
 @app.route('/termostato' , methods=['GET'])
-def search():
+def apiweb():
+  
+  #ORARIO ATTUALE
   now = datetime.now()
-  orario = now.strftime("%H:%M:%S")
-  fascia1 = "00:00:00"
-  fascia2 = "06:00:00"
-  fascia3 = "08:00:00"
-  fascia4 = "13:00:00"
-  fascia5 = "16:00:00"
-  fascia6 =  "23:00:00"
   orario = now.strftime("%H:%M:%S")
   print("date and time =", orario)
   
-  if (orario >= fascia1 and orario < fascia2 ):
-   print ("fascia1")
-   fascia = 1
-  if (orario >= fascia2 and orario < fascia3 ):
-   print ("fascia2")
-   fascia = 2
-  if (orario >= fascia3 and orario < fascia4 ):
-   print ("fascia3")
-   fascia = 3
-  if (orario >= fascia4 and orario < fascia5 ):
-   print ("fascia4")
-   fascia = 4
-  if (orario >= fascia5 and orario < fascia6 ):  
-   print ("fascia5")
-   fascia = 5
-  if (orario >= fascia6 and orario < fascia1 ):
-   print ("fascia6")
-   fascia = 6
+  #RICEVO ARGOMENTI DA CHIAMATA API ()
+  tinterna = request.args.get('tinterna')
+  hinterna = request.args.get('hinterna')
+  testerna = request.args.get('testerna')
+  hesterna = request.args.get('hesterna')
+  caldaia = request.args.get('caldaia')
 
-
+  #APRO IL FILE JSON DATABASE  
   with open('db.json') as f:
-   employee_data= json.load(f)
+   database = json.load(f)
+
+  # LEGGO LE 6 FASCIE ORARIE 
+  tfascia1 = database["tfascia1"] 	
+  tfascia2 = database["tfascia2"] 
+  tfascia3 = database["tfascia3"] 
+  tfascia4 = database["tfascia4"] 
+  tfascia5 = database["tfascia5"] 
+  tfascia6 = database["tfascia6"] 	   
    
-   temp1 = request.args.get('temp1')
-   temp2 = request.args.get('temp2')
-   temp3 = request.args.get('temp3')
-   stato1 = request.args.get('stato1')
-   stato2 = request.args.get('stato2')
-   stato3 = request.args.get('stato3')
+  # DETERMINO LA FASCIA ATTUALE E LA SCRIVO SUL FILE JSON 
+  if (orario >= tfascia1 and orario < tfascia2 ):
+   print ("fascia 1")
+   fasciaattuale = 1
+  if (orario >= tfascia2 and orario < tfascia3 ):
+   print ("fascia 2")
+   fasciaattuale = 2
+  if (orario >= tfascia3 and orario < tfascia4 ):
+   print ("fascia 3")
+   fasciaattuale = 3
+  if (orario >= tfascia4 and orario < tfascia5 ):
+   print ("fascia 4")
+   fasciaattuale = 4
+  if (orario >= tfascia5 and orario < tfascia6 ):
+   print ("fascia 5")
+   fasciaattuale = 5
+  if (orario >= tfascia6 and orario < tfascia1 ):
+   print ("fascia 6")
+   fasciaattuale = 6
   
-  if(temp1 is not None):
-    employee_data["temp1"] = temp1
-
-  if(temp2 is not None):
-    employee_data["temp2"] = temp2
-     
-  if(temp3 is not None):
-    employee_data["temp3"] = temp3
-
-  if(stato1 is not None):
-    employee_data["stato1"] = stato1
+  database["fasciaattuale"] = fasciaattuale
+  
+  # CONTROLLO I DATI RICEVUTI E SE PRESENTI LI SCRIVO SUL FILE JSON 
+  
+  if(tinterna is not None):
+    database["tinterna"] = tinterna
+  if(hinterna is not None):
+    database["hinterna"] = hinterna    
+  if(testerna is not None):
+    database["testerna"] = testerna
+  if(hesterna is not None):
+    database["hesterna"] = hesterna    
+  if(caldaia is not None):
+    database["caldaia"] = caldaia
     
-  if(stato2 is not None):
-    employee_data["stato2"] = stato2
-    
-  if(stato3 is not None):
-    employee_data["stato3"] = stato3
+  # DETERMINO LA TEMPERATURA SOGLIA PER LA FASCIA 
   
-  employee_data["fascia"] = fascia
+  if (fasciaattuale == 1):
+   database["tempsoglia"] = database["tempf1"]
+  if (fasciaattuale == 2):
+   database["tempsoglia"] = database["tempf2"]
+  if (fasciaattuale == 3):
+   database["tempsoglia"] = database["tempf3"]
+  if (fasciaattuale == 4):
+   database["tempsoglia"] = database["tempf4"]
+  if (fasciaattuale == 5):
+   database["tempsoglia"] = database["tempf5"]
+  if (fasciaattuale == 6):
+   database["tempsoglia"] = database["tempf6"]
   
-  if (fascia == 1):
-   employee_data["tempsoglia"] = employee_data["tempf1"]
-  if (fascia == 2):
-   employee_data["tempsoglia"] = employee_data["tempf2"]
-  if (fascia == 3):
-   employee_data["tempsoglia"] = employee_data["tempf3"]
-  if (fascia == 4):
-   employee_data["tempsoglia"] = employee_data["tempf4"]
-  if (fascia == 5):
-   employee_data["tempsoglia"] = employee_data["tempf5"]
-  if (fascia == 6):
-   employee_data["tempsoglia"] = employee_data["tempf6"]
+  # DETERMINO SE ACCENDERE LA CALDAIA
   
+  tempsogllia = database["tempsoglia"]
+  tempinterna = database["tinterna"]
+  
+  if (tempinterna <= tempsoglia ):
+  	caldaia = 1
+  else:
+  	caldaia = 0
+  
+  database["caldaia"] = caldaia 
+  	
+  # SCRIVO IL FILE JSON
   
   with open('db.json', 'w') as json_file:
    json.dump(employee_data, json_file)
