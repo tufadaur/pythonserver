@@ -7,11 +7,10 @@ def index():
   return "Hello world!" 
   
   
-@app.route('/termostato/')
-def termostato():
-    temp1 = request.args.get('temp1')
-    temp2 = request.args.get("temp2")
-    return temp1 , temp2
+@app.route('/termostato' , methods=['GET'])
+def search():
+    args = request.args
+    return args
     
 
 if __name__ == '__main__':
