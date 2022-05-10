@@ -109,7 +109,7 @@ def apiweb():
   	
   # SCRIVO IL FILE JSON
   
-  with open('db.json', 'w') as json_file:
+  with open('/var/www/default/testandrea/assets/json/db.json', 'w') as json_file:
    json.dump(database, json_file)
   
   return (database)
