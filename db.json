@@ -16,6 +16,7 @@
 "tfascia3" : "08:00:00",
 "tfascia4" : "12:00:00",
 "tfascia5" : "17:00:00",
-"tfascia6" : "23:00:00"
-"rele" : "0"
+"tfascia6" : "23:00:00" ,
+"rele" : "0" ,
+"last" : "data"
 }
