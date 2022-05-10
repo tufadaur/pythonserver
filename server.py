@@ -28,7 +28,7 @@ def apiweb():
   rele = request.args.get('rele')
 
   #APRO IL FILE JSON DATABASE  
-  with open('../var/www/default/testandrea/assets/json/db.json') as f:
+  with open('./var/www/default/testandrea/assets/json/db.json') as f:
    database = json.load(f)
 
   # LEGGO LE 6 FASCIE ORARIE 
