@@ -1,7 +1,3 @@
 <script>
-var p = document.getElementById("tinterna");
-p.innerHTML = "{{database.tinterna}}";
-
-alert ("peppe");
-alert ({{database.tinterna}}) ;
+    document.getElementById("tinterna").innerHTML = "{{database.tinterna}}";
 </script>

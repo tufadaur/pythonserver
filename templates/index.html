@@ -10,17 +10,13 @@
 
     <title>Hello, world!</title>
     <script>
-      var p = document.getElementById("tinterna");
-      p.innerHTML = {{database.tinterna}};
-      
-      alert ("peppe");
-      alert ({{database.tinterna}}) ;
-      </script>
+      document.getElementById("tinterna").innerText = "{{database.tinterna}}";
+    </script>
   </head>
   <body>
     
     <h1>Temperatura Interna</h1>
-    <div id="tinterna"><h2></h2></div>
+    <h2 id="tinterna"></h2>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
