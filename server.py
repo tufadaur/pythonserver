@@ -16,6 +16,7 @@ def apiweb():
   now = datetime.now()
   orario = now.strftime("%H:%M:%S")
   print("date and time =", orario)
+  datacompleta = now.strftime("%d/%m/%Y, %H:%M:%S")
   
   #RICEVO ARGOMENTI DA CHIAMATA API ()
   tinterna = request.args.get('tinterna')
@@ -99,6 +100,10 @@ def apiweb():
   
   database["caldaia"] = caldaia 
   database["rele"] = rele
+  
+  #SCRIVO LA DATA DELL ULTIMA CHIAMATA API
+  
+  database["last"] =  datacompleta
   	
   # SCRIVO IL FILE JSON
   
