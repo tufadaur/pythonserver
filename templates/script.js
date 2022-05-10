@@ -1,2 +1,5 @@
-var p = document.getElementById("mioParagrafo");
-p.innerHTML = "Testo del paragrafo";
+var p = document.getElementById("tinterna");
+p.innerHTML = {{database.tinterna}};
+
+alert ("peppe");
+alert ({{database.tinterna}}) ;
