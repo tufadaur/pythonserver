@@ -1,4 +1,4 @@
-from flask import Flask , request
+from flask import Flask, render_template , request
 from datetime import datetime
 import json
 
@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-  return "Hello world!" 
+  return render_template('index.html') 
   
   
 @app.route('/termostato' , methods=['GET'])
