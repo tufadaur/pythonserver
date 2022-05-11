@@ -128,7 +128,19 @@
 
 
   document.getElementById('t_interna').innerText = "{{database.t_interna}}" ;
-  document.getElementById('soglia').innerText = "{{database.fascia}}" ;
+  
+  var fascia = "{{database.fascia}}" ; 
+  if (fascia == "0") {
+    document.getElementById('soglia').innerText = "ECO" ;
+  }
+  if (fascia == "1") {
+    document.getElementById('soglia').innerText = "CONFORT" ;
+  }
+  if (fascia == "2") {
+    document.getElementById('soglia').innerText = "HOT" ;
+  }
+
+
   document.getElementById('h_interna').innerText = "{{database.h_interna}}" ;
   document.getElementById('t_esterna').innerText = "{{database.t_esterna}}" ;
   document.getElementById('h_esterna').innerText = "{{database.h_esterna}}" ;
