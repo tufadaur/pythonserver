@@ -123,7 +123,12 @@
 <script>
   
   function aggiornadati() {
+    var currentTime = new Date();
+    var oraattuale = currentTime.getHours();
+
+
   document.getElementById('t_interna').innerText = "{{database.t_interna}}" ;
+  document.getElementById('soglia').innerText = "{{database.termperature[oraattuale]}}" ;
   document.getElementById('h_interna').innerText = "{{database.h_interna}}" ;
   document.getElementById('t_esterna').innerText = "{{database.t_esterna}}" ;
   document.getElementById('h_esterna').innerText = "{{database.h_esterna}}" ;
