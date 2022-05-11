@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Gestione Termastato</title>
-    <link rel="stylesheet" href="{{url_for('static', filename = '/bootstrap/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{url_for('static', filename = '/css/style.css')}}">
+    <title>INDEX</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body style="width: 353px;">
@@ -23,7 +23,7 @@
                         <h5 class="mb-0" style="text-align: center;font-size: 16px;">T.int</h5>
                     </div>
                     <div class="card-body">
-                        <p style="text-align: center;margin: 0px;font-size: 28px;">22.4</p>
+                        <p id="t_interna" style="text-align: center;margin: 0px;font-size: 28px;">22.4</p>
                     </div>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                         <h5 class="mb-0" style="text-align: center;font-size: 16px;">T.est</h5>
                     </div>
                     <div class="card-body">
-                        <p style="text-align: center;padding: 0px;margin: 1px;font-size: 28px;">22.4</p>
+                        <p id="t_esterna" style="text-align: center;padding: 0px;margin: 1px;font-size: 28px;">22.4</p>
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@
                         <h5 class="mb-0" style="text-align: center;font-size: 16px;">Soglia</h5>
                     </div>
                     <div class="card-body">
-                        <p style="text-align: center;margin: 0px;font-size: 28px;">22.4</p>
+                        <p id="soglia" style="text-align: center;margin: 0px;font-size: 28px;">22.4</p>
                     </div>
                 </div>
             </div>
@@ -55,7 +55,7 @@
                         <h5 class="mb-0" style="text-align: center;font-size: 16px;">H.int</h5>
                     </div>
                     <div class="card-body">
-                        <p style="text-align: center;margin: 0px;font-size: 28px;">22.4</p>
+                        <p id="h_interna" style="text-align: center;margin: 0px;font-size: 28px;">22.4</p>
                     </div>
                 </div>
             </div>
@@ -65,7 +65,7 @@
                         <h5 class="mb-0" style="text-align: center;font-size: 16px;">H.est</h5>
                     </div>
                     <div class="card-body">
-                        <p style="text-align: center;padding: 0px;margin: 1px;font-size: 28px;">22.4</p>
+                        <p id="h_esterna" style="text-align: center;padding: 0px;margin: 1px;font-size: 28px;">22.4</p>
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                         <h5 class="mb-0" style="text-align: center;font-size: 16px;">Caldaia</h5>
                     </div>
                     <div class="card-body">
-                        <p style="text-align: center;margin: 0px;font-size: 28px;">22.4</p>
+                        <p id="caldaia" style="text-align: center;margin: 0px;font-size: 28px;">22.4</p>
                     </div>
                 </div>
             </div>
@@ -92,7 +92,7 @@
                         <h5 class="mb-0" style="text-align: center;font-size: 16px;">ECO</h5>
                     </div>
                     <div class="card-body">
-                        <p style="text-align: center;margin: 0px;font-size: 28px;">22.4</p>
+                        <p id="eco" style="text-align: center;margin: 0px;font-size: 28px;">22.4</p>
                     </div>
                 </div>
             </div>
@@ -102,7 +102,7 @@
                         <h5 class="mb-0" style="text-align: center;font-size: 16px;">CONF</h5>
                     </div>
                     <div class="card-body">
-                        <p style="text-align: center;padding: 0px;margin: 1px;font-size: 28px;">22.4</p>
+                        <p id="confort" style="text-align: center;padding: 0px;margin: 1px;font-size: 28px;">22.4</p>
                     </div>
                 </div>
             </div>
@@ -112,13 +112,17 @@
                         <h5 class="mb-0" style="text-align: center;font-size: 15px;">HOT</h5>
                     </div>
                     <div class="card-body">
-                        <p style="text-align: center;margin: 0px;font-size: 28px;">22.4</p>
+                        <p id="hot" style="text-align: center;margin: 0px;font-size: 28px;">22.4</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="{{url_for('static', filename = '/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
+<script>
+  document.getElementById('t_interna').innerText = "{{database.t_interna}}" ;
+  
 
+</script>
 </html>
