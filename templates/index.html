@@ -121,8 +121,19 @@
     <script src="{{url_for('static', filename = '/bootstrap/js/bootstrap.min.js')}}"></script>
 </body>
 <script>
+  
+  function aggiornadati() {
   document.getElementById('t_interna').innerText = "{{database.t_interna}}" ;
+  document.getElementById('h_interna').innerText = "{{database.h_interna}}" ;
+  document.getElementById('t_esterna').innerText = "{{database.t_esterna}}" ;
+  document.getElementById('h_esterna').innerText = "{{database.h_esterna}}" ;
+  document.getElementById('caldaia').innerText = "{{database.stato_caldaia}}" ;
+  document.getElementById('eco').innerText = "{{database.temperature[0]}}" ;
+  document.getElementById('confort').innerText = "{{database.temperature[1]}}" ;
+  document.getElementById('hot').innerText = "{{database.temperature[2]}}" ;
+  }
 
+  setInterval(aggiornadati, 5000);
 
 </script>
 </html>
