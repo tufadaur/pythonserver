@@ -67,6 +67,7 @@ def apiweb():
   #SCRIVO LA DATA DELL ULTIMA CHIAMATA API
   
   database["last"] =  datacompleta
+  database["fascia"] = fasciaperorario
   	
   # SCRIVO IL FILE JSON
   
