@@ -51,14 +51,15 @@ def apiweb():
   #SCRIVO LA DATA DELL ULTIMA CHIAMATA API
   
   database["last"] =  datacompleta
- 
+
+  stato_caldaia =  database["stato_caldaia"] 
   	
   # SCRIVO IL FILE JSON
   
   with open('static/json/db.json', 'w') as json_file:
    json.dump(database, json_file)
   
-  return (database)
+  return (stato_caldaia)
 
 
 if __name__ == '__main__':
