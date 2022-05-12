@@ -6,13 +6,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-  with open('static/json/db.json') as f:
-   database = json.load(f)
   return render_template(
-        'index.html',
-        title="Controllo Termostato",
-        description="Progettone di Andrea Tufanari",
-        database = database)
+    'index.html',
+    title="Controllo Termostato")
+    
+        
   
   
 @app.route('/termostato' , methods=['GET'])
@@ -20,8 +18,6 @@ def apiweb():
   
   #ORARIO ATTUALE
   now = datetime.now()
-  orario = now.strftime("%H")
-  print("date and time =", orario)
   datacompleta = now.strftime("%d/%m/%Y, %H:%M:%S")
   
   #RICEVO ARGOMENTI DA CHIAMATA API ()
