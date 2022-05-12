@@ -1,3 +1,4 @@
+{% extends 'navigation.html' %}
 <!doctype html>
 <html>
 
@@ -11,6 +12,7 @@
 
   <body style="width: 353px;">
     <div class="container">
+      {% block navigation %}{% endblock %}
       {% block content %}{% endblock %}
       {% block peppe %}{% endblock %}
     </div>
