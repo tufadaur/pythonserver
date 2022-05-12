@@ -58,7 +58,7 @@ def apiweb():
   with open('static/json/db.json', 'w') as json_file:
    json.dump(database, json_file)
   
-  return (database["stato_caldaia"])
+  return (database)
 
 
 if __name__ == '__main__':
