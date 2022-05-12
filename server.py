@@ -9,7 +9,7 @@ def index():
   with open('static/json/db.json') as f:
    database = json.load(f)
   return render_template(
-        'home.html',
+        'index.html',
         title="Controllo Termostato",
         description="Progettone di Andrea Tufanari",
         database = database)
