@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'layout.html' %}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Gestione Termostato</title>
-    <link rel="stylesheet" href="{{url_for('static', filename = '/bootstrap/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{url_for('static', filename = '/css/styles.css')}}">
-</head>
 
 <body style="width: 353px;">
     <div class="container">
@@ -120,37 +112,6 @@
     </div>
     <script src="{{url_for('static', filename = '/bootstrap/js/bootstrap.min.js')}}"></script>
 </body>
-<script>
-  
-  function aggiornadati() {
-    var currentTime = new Date();
-    var oraattuale = currentTime.getHours();
 
 
-  document.getElementById('t_interna').innerText = "{{database.t_interna}}" ;
-  
-  var fascia = "{{database.fascia}}" ; 
-  if (fascia == "0") {
-    document.getElementById('soglia').innerText = "ECO" ;
-  }
-  if (fascia == "1") {
-    document.getElementById('soglia').innerText = "CONFORT" ;
-  }
-  if (fascia == "2") {
-    document.getElementById('soglia').innerText = "HOT" ;
-  }
-
-
-  document.getElementById('h_interna').innerText = "{{database.h_interna}}" ;
-  document.getElementById('t_esterna').innerText = "{{database.t_esterna}}" ;
-  document.getElementById('h_esterna').innerText = "{{database.h_esterna}}" ;
-  document.getElementById('caldaia').innerText = "{{database.stato_caldaia}}" ;
-  document.getElementById('eco').innerText = "{{database.temperature[0]}}" ;
-  document.getElementById('confort').innerText = "{{database.temperature[1]}}" ;
-  document.getElementById('hot').innerText = "{{database.temperature[2]}}" ;
-  }
-
-  setInterval(aggiornadati, 5000);
-
-</script>
 </html>

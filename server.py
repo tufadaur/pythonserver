@@ -8,7 +8,11 @@ app = Flask(__name__)
 def index():
   with open('static/json/db.json') as f:
    database = json.load(f)
-  return render_template('index.html', database = database) 
+  return render_template(
+        'home.html',
+        title="Controllo Termostato",
+        description="Progettone di Andrea Tufanari",
+        database = database)
   
   
 @app.route('/termostato' , methods=['GET'])
