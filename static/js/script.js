@@ -5,7 +5,7 @@ function aggiornadati(){
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var myArr = JSON.parse(this.responseText);
-            myFunction(myArr);
+            document.getElementById("t_interna").innerHTML = myArr['t_interna'];
         }
     };
     xmlhttp.open("GET", url, true);
