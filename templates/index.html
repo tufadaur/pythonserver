@@ -1,8 +1,6 @@
 {% extends 'layout.html' %}
 
-
-<body style="width: 353px;">
-    <div class="container">
+{% block content %}
         <div class="row">
             <div class="col">
                 <h2 class="text-center">Termostato&nbsp;</h2>
@@ -108,10 +106,5 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <script src="{{url_for('static', filename = '/bootstrap/js/bootstrap.min.js')}}"></script>
-</body>
+{% endblock %}
 
-
-</html>
