@@ -34,8 +34,6 @@ def apiweb():
   #APRO IL FILE JSON DATABASE  
   with open('static/json/db.json') as f:
    database = json.load(f)
-
-  
   
   # CONTROLLO I DATI RICEVUTI E SE PRESENTI LI SCRIVO SUL FILE JSON 
   
@@ -50,35 +48,17 @@ def apiweb():
   if(rele is not None):
     database["stato_rele"] = rele
     
-  
-  # DETERMINO SE ACCENDERE LA CALDAIA
-  
-  
-  fasciaperorario = database["orari"][int(orario)]
-  tempsoglia = database["temperature"][int(fasciaperorario)]
-  tempinterna = database["t_interna"]
-  isteresi = "0.5"
-  
-  if (tempinterna < tempsoglia ):
-  	caldaia = True
-  
-  if (tempinterna > (tempsoglia + isteresi)):
-  	caldaia = False
-  
-  database["stato_caldaia"] = caldaia 
-  database["stato_rele"] = rele
-  
   #SCRIVO LA DATA DELL ULTIMA CHIAMATA API
   
   database["last"] =  datacompleta
-  database["fascia"] = fasciaperorario
+ 
   	
   # SCRIVO IL FILE JSON
   
   with open('static/json/db.json', 'w') as json_file:
    json.dump(database, json_file)
   
-  return (database)
+  return (database["statocaldaia"])
 
 
 if __name__ == '__main__':
