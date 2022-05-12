@@ -12,6 +12,7 @@
   <body style="width: 353px;">
     <div class="container">
       {% block content %}{% endblock %}
+      {% block peppe %}{% endblock %}
     </div>
     <script src="{{url_for('static', filename = '/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{url_for('static', filename = '/js/script.js')}}"></script>
