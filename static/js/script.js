@@ -20,4 +20,4 @@ function aggiornadati(){
     xmlhttp.send();
 }
 
-setInterval (aggiornadati , 1000) ;
+setInterval (aggiornadati , 10000) ;
