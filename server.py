@@ -25,8 +25,6 @@ def apiweb():
   #RICEVO ARGOMENTI DA CHIAMATA API ()
   tinterna = request.args.get('t_interna')
   hinterna = request.args.get('h_interna')
-  testerna = request.args.get('t_esterna')
-  hesterna = request.args.get('h_esterna')
   rele = request.args.get('stato_rele')
 
   #APRO IL FILE JSON DATABASE  
@@ -39,20 +37,15 @@ def apiweb():
     database["t_interna"] = tinterna
   if(hinterna is not None):
     database["h_interna"] = hinterna   
-  if(testerna is not None):
-    database["t_esterna"] = testerna
-  if(hesterna is not None):
-    database["h_esterna"] = hesterna  
   if(rele is not None):
     database["stato_rele"] = rele
     
   #determino orario fascia e temperatura di soglia
   
-  fascia_attuale = database["orari"][int(orario)]
+  
   print ("orario attuale", orario)
-  print ("fascia attuale:",fascia_attuale)
 
-  soglia_attuale = database["temperature"][int(fascia_attuale)]
+  soglia_attuale = database["temperature_orarie"][int(orario)]
   print ("soglia attuale", soglia_attuale)
 
   temp_interna = database["t_interna"]
