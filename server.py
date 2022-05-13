@@ -1,6 +1,6 @@
 from re import S
 from flask import Flask, render_template , request
-from datetime import datetime
+import time
 import json
 
 app = Flask(__name__)
@@ -18,9 +18,10 @@ def index():
 def apiweb():
   
   #ORARIO ATTUALE
-  now = datetime.now()
-  orario = now.strftime("%H")
-  datacompleta = now.strftime("%d/%m/%Y, %H:%M:%S")
+
+  curr_time = time.localtime()
+  datacompleta = time.strftime("%H:%M:%S", curr_time)
+  orario = time.strftime("%H", curr_time)
   
   #RICEVO ARGOMENTI DA CHIAMATA API ()
   tinterna = request.args.get('t_interna')
