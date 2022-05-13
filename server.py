@@ -66,6 +66,7 @@ def apiweb():
 
   #SCRIVO LA DATA DELL ULTIMA CHIAMATA API
   
+  database["soglia_attuale"] = soglia_attuale
   database["last"] =  datacompleta
   	
   # SCRIVO IL FILE JSON
