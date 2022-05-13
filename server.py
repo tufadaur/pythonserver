@@ -56,7 +56,7 @@ def apiweb():
   print ("soglia attuale", soglia_attuale)
 
   temp_interna = database["t_interna"]
-  print ("temperatura interna" , )
+  print ("temperatura interna" , temp_interna )
 
   if (temp_interna < soglia_attuale):
     database["stato_caldaia"] = "ON"
