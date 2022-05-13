@@ -1,3 +1,4 @@
+from re import S
 from flask import Flask, render_template , request
 from datetime import datetime
 import json
@@ -18,6 +19,7 @@ def apiweb():
   
   #ORARIO ATTUALE
   now = datetime.now()
+  orario = now.strftime("%H")
   datacompleta = now.strftime("%d/%m/%Y, %H:%M:%S")
   
   #RICEVO ARGOMENTI DA CHIAMATA API ()
@@ -44,6 +46,24 @@ def apiweb():
   if(rele is not None):
     database["stato_rele"] = rele
     
+  #determino orario fascia e temperatura di soglia
+  
+  fascia_attuale = database["orari"][int(orario)]
+  print ("orario attuale", orario)
+  print ("fascia attuale:",fascia_attuale)
+
+  soglia_attuale = database["temperature"][int(fascia_attuale)]
+  print ("soglia attuale", soglia_attuale)
+
+  temp_interna = database["t_interna"]
+  print ("temperatura interna" , )
+
+  if (temp_interna < soglia_attuale):
+    database["stato_caldaia"] = "ON"
+  
+  if (temp_interna > soglia_attuale):
+    database["stato_caldaia"] = "OFF"
+
   #SCRIVO LA DATA DELL ULTIMA CHIAMATA API
   
   database["last"] =  datacompleta
