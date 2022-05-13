@@ -64,6 +64,7 @@ def apiweb():
   if (temp_interna > soglia_attuale):
     database["stato_caldaia"] = "OFF"
 
+  print ("Stato Caldaia :", database["stato_caldaia"])
   #SCRIVO LA DATA DELL ULTIMA CHIAMATA API
   
   database["soglia_attuale"] = soglia_attuale
