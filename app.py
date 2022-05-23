@@ -1,20 +1,21 @@
-from crypt import methods
-from operator import truediv
-from re import S
+
+from xml.etree.ElementInclude import include
 from flask import Flask, render_template , request , url_for  ,redirect , session ,g 
 import time
 import json
+
+
 
 app = Flask(__name__)
 
 app.secret_key ="peppeminchia"
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET' ,'POST'])
 def login():
     
     if request.method == 'POST':
-        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
+        if request.form['username'] != 'tufadaur' or request.form['password'] != 'tuffy1':
             error = 'Invalid Credentials. Please try again.'
         else:
           session['loggedin'] = True
@@ -26,7 +27,7 @@ def login():
 @app.route('/home')
 def home():
   if g.loggedin:
-   return render_template('home.html' , user = session['user'])
+   return render_template('home.html' , user = session['user'], title = "TERMOSTATO")
   return redirect (url_for('login'))
 
 @app.route('/logout')
